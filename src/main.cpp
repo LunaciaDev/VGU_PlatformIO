@@ -3,6 +3,13 @@
 #include "state_machine.h"
 #include <Arduino.h>
 
+void TIMER_ISR(void *pvParameters) {
+  while(1) {
+    SCH_Update();
+    vTaskDelay(10);
+  }
+}
+
 void setup() {
   SCH_Init();
   SCH_Add_Task(Timer_Run, 0, 1);
@@ -10,7 +17,5 @@ void setup() {
 }
 
 void loop() {
-  SCH_Update();
   SCH_Dispatch_Tasks();
-  delay(10);
 }
