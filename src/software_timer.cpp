@@ -20,7 +20,7 @@ int Is_Timer_Expired(int index) {
 void Timer_Run(void) {
     for (int i = 0; i < 10; i++) {
         if (timer_counter[i] > 0) {
-            timer_counter[i--];
+            timer_counter[i]--;
             if (timer_counter[i] == 0) {
                 timer_flag[i] = 1;
             }

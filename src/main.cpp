@@ -12,5 +12,5 @@ void setup() {
 void loop() {
   SCH_Update();
   SCH_Dispatch_Tasks();
-  delay(100);
+  delay(10);
 }
