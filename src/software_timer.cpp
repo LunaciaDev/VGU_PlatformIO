@@ -1,5 +1,4 @@
 #include "software_timer.h"
-#include <Arduino.h>
 
 int timer_counter[10];
 int timer_flag[10];

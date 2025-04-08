@@ -5,7 +5,6 @@
 
 void setup() {
   SCH_Init();
-  StateMachine_Init();
   SCH_Add_Task(Timer_Run, 0, 1);
   SCH_Add_Task(StateMachine_Run, 0, 1);
 }
