@@ -3,12 +3,12 @@
 int timer_counter[10];
 int timer_flag[10];
 
-void Set_Timer(int index, int value) {
+void Timer_Set(int index, int value) {
     timer_counter[index] = value;
     timer_flag[index] = 0;
 }
 
-int Is_Timer_Expired(int index) {
+int Timer_IsExpired(int index) {
     if (timer_flag[index] == 1) {
         timer_flag[index] = 0;
         return 1;
