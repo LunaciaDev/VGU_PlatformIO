@@ -1,28 +1,56 @@
 #include "light_control.h"
 #include "Arduino.h"
 
-void LightControl_SetLight(int target, int light)
+void LightControl_SetLight(int pin, int light)
 {
-    switch (light)
+    if (pin == 10)
     {
+        switch (light)
+        {
         case RED_LIGHT:
-            digitalWrite(target, HIGH);
-            digitalWrite(target+1, HIGH);
+            digitalWrite(pin, HIGH);
+            digitalWrite(pin + 7, HIGH);
             break;
 
         case YELLOW_LIGHT:
-            digitalWrite(target, LOW);
-            digitalWrite(target+1, HIGH);
+            digitalWrite(pin, LOW);
+            digitalWrite(pin + 7, HIGH);
             break;
 
         case GREEN_LIGHT:
-            digitalWrite(target, HIGH);
-            digitalWrite(target+1, LOW);
+            digitalWrite(pin, HIGH);
+            digitalWrite(pin + 7, LOW);
             break;
 
         case NO_LIGHT:
-            digitalWrite(target, LOW);
-            digitalWrite(target+1, LOW);
+            digitalWrite(pin, LOW);
+            digitalWrite(pin + 7, LOW);
             break;
+        }
+
+        return;
+    }
+
+    switch (light)
+    {
+    case RED_LIGHT:
+        digitalWrite(pin, HIGH);
+        digitalWrite(pin + 1, HIGH);
+        break;
+
+    case YELLOW_LIGHT:
+        digitalWrite(pin, LOW);
+        digitalWrite(pin + 1, HIGH);
+        break;
+
+    case GREEN_LIGHT:
+        digitalWrite(pin, HIGH);
+        digitalWrite(pin + 1, LOW);
+        break;
+
+    case NO_LIGHT:
+        digitalWrite(pin, LOW);
+        digitalWrite(pin + 1, LOW);
+        break;
     }
 }
